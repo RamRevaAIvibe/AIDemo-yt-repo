@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0 → Shipped | Resume Parser</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="#top">0 → Shipped</a>
+        <nav>
+          <a href="#parser">Parser</a>
+          <a href="#how">How it works</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- Hero -->
+      <section class="hero">
+        <div class="container">
+          <p class="eyebrow">UI mock · runs fully in your browser</p>
+          <h1>Resume parser,<br />from <span class="accent">0</span> to <span class="accent">shipped</span>.</h1>
+          <p class="sub">
+            Upload a résumé PDF and get an instant score — see which skills are
+            present and which ones are missing. Results on this page are
+            simulated; no server involved.
+          </p>
+          <a class="btn primary" href="#parser">Try it now</a>
+        </div>
+      </section>
+
+      <!-- Upload + results -->
+      <section id="parser" class="parser">
+        <div class="container">
+          <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Upload a résumé PDF">
+            <input type="file" id="file-input" accept="application/pdf,.pdf" hidden />
+            <div class="dropzone-inner">
+              <div class="pdf-icon" aria-hidden="true">PDF</div>
+              <p class="drop-title"><strong>Click to upload</strong> or drag &amp; drop a résumé PDF</p>
+              <p class="hint">PDF only · nothing leaves your browser</p>
+            </div>
+          </div>
+
+          <div id="status" class="status" hidden>
+            <span class="spinner" aria-hidden="true"></span>
+            <span id="status-text">Parsing your résumé…</span>
+          </div>
+
+          <section id="result" class="result" hidden aria-live="polite">
+            <div class="score-card">
+              <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+                <circle class="ring-bg" cx="60" cy="60" r="52" />
+                <circle id="ring-fg" class="ring-fg" cx="60" cy="60" r="52" />
+              </svg>
+              <div class="score-copy">
+                <div class="score-number">
+                  <span id="score-value">0</span><span class="out-of">/100</span>
+                </div>
+                <div id="score-label" class="score-label">Good</div>
+                <p id="file-name" class="file-name"></p>
+                <button id="reset-btn" class="btn ghost small" type="button">Parse another</button>
+              </div>
+            </div>
+
+            <div class="skills-grid">
+              <div class="skills-card present">
+                <h2>Skills present <span id="present-count" class="count"></span></h2>
+                <ul id="present-skills" class="chips"></ul>
+              </div>
+              <div class="skills-card missing">
+                <h2>Skills missing <span id="missing-count" class="count"></span></h2>
+                <ul id="missing-skills" class="chips"></ul>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <!-- How it works -->
+      <section id="how" class="how">
+        <div class="container steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h3>Upload a PDF</h3>
+            <p>Drop in any résumé PDF. The mock accepts it straight from the file picker or a drag &amp; drop.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h3>Score is calculated</h3>
+            <p>The parser rates the résumé 0–100. Here the score is simulated with a small delay to mimic real work.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h3>See the skill gap</h3>
+            <p>Skills found in the résumé show up green; the ones a role would expect but can't find show up red.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>0 → Shipped · resume parser mock — swap <code>MOCK_RESULT</code> in <code>app.js</code> for a real pdf.js parser when you ship it.</p>
+      </div>
+    </footer>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
